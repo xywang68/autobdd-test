@@ -1,4 +1,4 @@
-const { When } = require('cucumber');
+const { When } = require('@cucumber/cucumber');
 
 When(
     /^:project: I scroll to the element "([^"]*)?"$/,

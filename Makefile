@@ -3,6 +3,13 @@ testSectionEnd="----------\nDone Test\n=========="
 
 .PHONY: docker-run test-all test clean e2e-test cy-test js-test py3-test py2-test k6-test
 
+# export dynamic env for docker-compose (not shell-substitutable in .env)
+export USER ?= $(shell whoami)
+export HOSTOS ?= $(shell uname -s)
+export USERID ?= $(shell id -u)
+export GROUPID ?= $(shell id -g)
+export PASSWORD ?= ubuntu
+
 docker-run:
 	@echo make $@
 	docker-compose run --rm autobdd-test-run "xvfb-runner.sh make ${jobs}"
