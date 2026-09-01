@@ -9,7 +9,11 @@
 # in container ssh: make test-all
 # vnc localhost:5924
 # docker-compose down
-# 
+#
+# DEV-MODE: mount the working-tree AutoBDD framework over the image's baked copy so
+# autobdd-test runs against live AutoBDD source (phase-0) instead of the stale image.
+# AUTOBDD_SRC defaults to the sibling ../AutoBDD directory. Set it explicitly to point
+# at your checkout:  AUTOBDD_SRC=/abs/path/to/AutoBDD docker-compose up ...
 version: '2.4'
 services:
 
@@ -22,6 +26,7 @@ services:
     privileged: true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ${AUTOBDD_SRC:-../AutoBDD}:/home/${USER}/Projects/AutoBDD:rw
       - ${PWD}:/home/${USER}/Projects/AutoBDD/test-projects/${ABDD_PROJECT}:rw
     ports:
       - "5924:5900"
@@ -47,6 +52,7 @@ services:
     privileged: true
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ${AUTOBDD_SRC:-../AutoBDD}:/home/${USER}/Projects/AutoBDD:rw
       - ${PWD}:/home/${USER}/Projects/AutoBDD/test-projects/${ABDD_PROJECT}:rw
     environment:
       - USER=${USER}
