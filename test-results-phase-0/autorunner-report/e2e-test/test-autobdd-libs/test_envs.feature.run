@@ -1,0 +1,62 @@
+Google Chrome 96.0.4664.93
+Chrome Driver 96.0.4664.45
+
+Execution of 1 workers started at 2026-09-01T21:05:51.617Z
+
+[0-0] RUNNING in chrome - /features/test_envs.feature
+[0-0] Scenario: test envs
+[0-0] 
+[0-0] :browser: I open the path "ENV:ROOTPATH"
+[0-0] chrome:version/
+[0-0] :browser: I scroll to the element "ENV:LOGOID"
+[0-0] :screen: I should see the "ENV:LOGO_FILENAME" image on the screen
+[0-0] /home/xywang68/Projects/AutoBDD/framework/testimages/chromeLogo.jpg
+[0-0] findTargetImage --imagePath=/home/xywang68/Projects/AutoBDD/framework/testimages/chromeLogo.jpg --imageSimilarity=0.8 --maxSim=1 --textHint="" --imageWaitTime=null --imageAction=null --imageMaxCount=1
+[0-0] [{"name":"chromeLogo.jpg","score":0.987655,"text":["@ chrome"],"location":{"x":1367,"y":89},"dimension":{"width":129,"height":39},"center":{"x":1432,"y":109},"clicked":null}]
+[0-0] [
+[0-0]   {
+[0-0]     name: 'chromeLogo.jpg',
+[0-0]     score: 0.987655,
+[0-0]     text: [ '@ chrome' ],
+[0-0]     location: { x: 1367, y: 89 },
+[0-0]     dimension: { width: 129, height: 39 },
+[0-0]     center: { x: 1432, y: 109 },
+[0-0]     clicked: null
+[0-0]   }
+[0-0] ]
+[0-0] :screen: I expect that the "last-seen" image does contain the text "ENV:LOGO_TEXT"
+[0-0] [
+[0-0]   {
+[0-0]     name: 'chromeLogo.jpg',
+[0-0]     score: 0.987655,
+[0-0]     text: [ '@ chrome' ],
+[0-0]     location: { x: 1367, y: 89 },
+[0-0]     dimension: { width: 129, height: 39 },
+[0-0]     center: { x: 1432, y: 109 },
+[0-0]     clicked: null
+[0-0]   }
+[0-0] ]
+[0-0] 
+[0-0] PASSED in chrome - /features/test_envs.feature
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[chrome 96.0.4664.93 linux #0-0] Running: chrome (v96.0.4664.93) on linux
+[chrome 96.0.4664.93 linux #0-0] Session ID: bc6307df09e060a271be50f96b89d4b5
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] » /features/test_envs.feature
+[chrome 96.0.4664.93 linux #0-0] test envs
+[chrome 96.0.4664.93 linux #0-0] As a QA Engineer
+[chrome 96.0.4664.93 linux #0-0] I want to env vars used in test cases
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] test envs
+[chrome 96.0.4664.93 linux #0-0]    ✓ Given :browser: I open the path "ENV:ROOTPATH"
+[chrome 96.0.4664.93 linux #0-0]    ✓ When :browser: I scroll to the element "ENV:LOGOID"
+[chrome 96.0.4664.93 linux #0-0]    ✓ Then :screen: I should see the "ENV:LOGO_FILENAME" image on the screen
+[chrome 96.0.4664.93 linux #0-0]    ✓ And :screen: I expect that the "last-seen" image does contain the text "ENV:LOGO_TEXT"
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] 4 passing (9.7s)
+
+
+Spec Files:	 1 passed, 1 total (100% completed) in 00:00:14 
+

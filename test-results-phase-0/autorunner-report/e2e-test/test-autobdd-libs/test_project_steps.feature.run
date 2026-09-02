@@ -1,0 +1,49 @@
+Google Chrome 96.0.4664.93
+Chrome Driver 96.0.4664.45
+
+Execution of 1 workers started at 2026-09-01T21:05:51.114Z
+
+[0-0] RUNNING in chrome - /features/test_project_steps.feature
+[0-0] Scenario: test step files provided by project
+[0-0] 
+[0-0] :browser: I open the path "/"
+[0-0] chrome:version/
+[0-0] :project: I scroll to the element "#logo"
+[0-0] :screen: I should see the "myGoogleLogo" image on the screen
+[0-0] /home/xywang68/Projects/AutoBDD/test-projects/autobdd-test/e2e-test/test-autobdd-libs/testimages/myGoogleLogo.png
+[0-0] findTargetImage --imagePath=/home/xywang68/Projects/AutoBDD/test-projects/autobdd-test/e2e-test/test-autobdd-libs/testimages/myGoogleLogo.png --imageSimilarity=0.8 --maxSim=1 --textHint="" --imageWaitTime=null --imageAction=null --imageMaxCount=1
+[0-0] [{"name":"myGoogleLogo.png","score":1,"text":["@ chrome"],"location":{"x":1363,"y":91},"dimension":{"width":139,"height":34},"center":{"x":1433,"y":108},"clicked":null}]
+[0-0] [
+[0-0]   {
+[0-0]     name: 'myGoogleLogo.png',
+[0-0]     score: 1,
+[0-0]     text: [ '@ chrome' ],
+[0-0]     location: { x: 1363, y: 91 },
+[0-0]     dimension: { width: 139, height: 34 },
+[0-0]     center: { x: 1433, y: 108 },
+[0-0]     clicked: null
+[0-0]   }
+[0-0] ]
+[0-0] 
+[0-0] PASSED in chrome - /features/test_project_steps.feature
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[chrome 96.0.4664.93 linux #0-0] Running: chrome (v96.0.4664.93) on linux
+[chrome 96.0.4664.93 linux #0-0] Session ID: e8db87e61a268d03430b1134c5ea55d0
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] » /features/test_project_steps.feature
+[chrome 96.0.4664.93 linux #0-0] test step files provided by project
+[chrome 96.0.4664.93 linux #0-0] As a test project member
+[chrome 96.0.4664.93 linux #0-0] I want to test step files povided by my own project
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] test step files provided by project
+[chrome 96.0.4664.93 linux #0-0]    ✓ When :browser: I open the path "/"
+[chrome 96.0.4664.93 linux #0-0]    ✓ And :project: I scroll to the element "#logo"
+[chrome 96.0.4664.93 linux #0-0]    ✓ Then :screen: I should see the "myGoogleLogo" image on the screen
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] 3 passing (10s)
+
+
+Spec Files:	 1 passed, 1 total (100% completed) in 00:00:13 
+

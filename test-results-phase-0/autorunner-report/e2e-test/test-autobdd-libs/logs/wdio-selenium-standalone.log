@@ -1,0 +1,42 @@
+21:05:52.038 INFO [GridLauncherV3.parse] - Selenium server version: 3.141.59, revision: e82be7d358
+21:05:52.130 INFO [GridLauncherV3.lambda$buildLaunchers$3] - Launching a standalone Selenium Server on port 4547
+2026-09-01 21:05:52.178:INFO::main: Logging initialized @434ms to org.seleniumhq.jetty9.util.log.StdErrLog
+21:05:52.478 INFO [WebDriverServlet.<init>] - Initialising WebDriverServlet
+21:05:52.578 INFO [SeleniumServer.boot] - Selenium Server is up and running on port 4547
+21:05:54.912 INFO [ActiveSessionFactory.apply] - Capabilities are: {
+  "browserName": "chrome",
+  "goog:chromeOptions": {
+    "args": [
+      "--disable-infobars",
+      "--window-size=1920,1200",
+      "--user-data-dir=\u002ftmp\u002fchrome_profile_104",
+      "--incognito",
+      "--no-sandbox",
+      "--disable-gpu",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--ignore-certificate-errors"
+    ],
+    "prefs": {
+      "credentials_enable_service": false,
+      "profile": {
+        "password_manager_enabled": false
+      },
+      "download": {
+        "default_directory": "\u002ftmp\u002fdownload_104",
+        "directory_upgrade": true
+      },
+      "savefile": {
+        "default_directory": "\u002ftmp\u002fdownload_104"
+      }
+    }
+  }
+}
+21:05:54.917 INFO [ActiveSessionFactory.lambda$apply$11] - Matched factory org.openqa.selenium.grid.session.remote.ServicedSession$Factory (provider: org.openqa.selenium.chrome.ChromeDriverService)
+Starting ChromeDriver 96.0.4664.45 (76e4c1bb2ab4671b8beba3444e61c0f17584b2fc-refs/branch-heads/4664@{#947}) on port 25886
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+21:05:55.942 INFO [ProtocolHandshake.createSession] - Detected dialect: W3C
+21:05:55.973 INFO [RemoteSession$Factory.lambda$performHandshake$0] - Started new session bc6307df09e060a271be50f96b89d4b5 (org.openqa.selenium.chrome.ChromeDriverService)21:06:34.909 INFO [ActiveSessions$1.onStop] - Removing session 921a06e1071efed21ccbef298ec31730 (org.openqa.selenium.chrome.ChromeDriverService)
+

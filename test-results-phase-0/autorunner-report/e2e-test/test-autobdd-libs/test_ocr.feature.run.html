@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body {background-color: black;}
+pre {
+	font-weight: normal;
+	color: #bbb;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+b {font-weight: normal}
+b.BOLD {color: #fff}
+b.ITA {font-style: italic}
+b.UND {text-decoration: underline}
+b.STR {text-decoration: line-through}
+b.UNDSTR {text-decoration: underline line-through}
+b.BLK {color: #000000}
+b.RED {color: #aa0000}
+b.GRN {color: #00aa00}
+b.YEL {color: #aa5500}
+b.BLU {color: #0000aa}
+b.MAG {color: #aa00aa}
+b.CYN {color: #00aaaa}
+b.WHI {color: #aaaaaa}
+b.HIK {color: #555555}
+b.HIR {color: #ff5555}
+b.HIG {color: #55ff55}
+b.HIY {color: #ffff55}
+b.HIB {color: #5555ff}
+b.HIM {color: #ff55ff}
+b.HIC {color: #55ffff}
+b.HIW {color: #ffffff}
+b.BBLK {background-color: #000000}
+b.BRED {background-color: #aa0000}
+b.BGRN {background-color: #00aa00}
+b.BYEL {background-color: #aa5500}
+b.BBLU {background-color: #0000aa}
+b.BMAG {background-color: #aa00aa}
+b.BCYN {background-color: #00aaaa}
+b.BWHI {background-color: #aaaaaa}
+</style>
+</head>
+<body>
+<pre>Google Chrome 96.0.4664.93
+Chrome Driver 96.0.4664.45
+
+Execution of 1 workers started at 2026-09-01T21:05:51.606Z
+
+[0-0] RUNNING in chrome - /features/test_ocr.feature
+[0-0] Scenario: test screen area ocr
+[0-0] 
+[0-0] :browser: I open the path "/"
+[0-0] chrome:version/
+[0-0] :screen: I expect that the screen area does contain the text "Official Build"
+[0-0] getImageText.js
+[0-0] Warning: Invalid resolution 0 dpi. Using 70 instead.
+[0-0] Estimating resolution as 127
+[0-0] [
+[0-0]   {
+[0-0]     text: [
+[0-0]       'ea cae',
+[0-0]       '',
+[0-0]       ' ',
+[0-0]       '',
+[0-0]       '256 (ers',
+[0-0]       '',
+[0-0]       '96.0.4664.93 (Official Build) (64-bit) chrome',
+[0-0]       '1753120a70b4*8108f2418e8b51174650777 1db- refs/branch- ooole LC',
+[0-0]       'heads /4664@{#1229} Copyright 2026 Google LLC. All',
+[0-0]       'Linux rights reserved.',
+[0-0]       've 9.6.180.20',
+[0-0]       '',
+[0-0]       'User Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36',
+[0-0]       '',
+[0-0]       '(KHTML, Like Gecko) Chrome/96.0.4664.93 Safari/537.36',
+[0-0]       '',
+[0-0]       '/usr/bin/google-chrone --allow-pre-conmit-input --',
+[0-0]       '',
+[0-0]       'disable- background-networking --disable-client-side-',
+[0-0]       '',
+[0-0]       'phishing-detection --disable-default-apps --disable-',
+[0-0]       '',
+[0-0]       'dev-shn-usage --disable-gpu --disable-hang-monitor --',
+[0-0]       '',
+[0-0]       'disable- infobars --disable-popup-blocking --disable-',
+[0-0]       '',
+[0-0]       'pronpt-on-repost --disable-setuid-sandbox --disable-',
+[0-0]       '',
+[0-0]       'sync --enable-automation --enable-blink-',
+[0-0]       '',
+[0-0]       'features-ShadowDOMVO --enable-logging.--ignore-',
+[0-0]       '',
+[0-0]       'certificate-errors --incognito --log-leve',
+[0-0]       'first-run --no-sandbox. --no-service-autorun',
+[0-0]       '',
+[0-0]       '   ',
+[0-0]       '',
+[0-0]       ' ',
+[0-0]       '',
+[0-0]       'Command Lin',
+[0-0]       '',
+[0-0]       '   ',
+[0-0]       '',
+[0-0]       '  ',
+[0-0]       '',
+[0-0]       '   ',
+[0-0]       '',
+[0-0]       ' ',
+[0-0]       '',
+[0-0]       'password-store=basic --remote-debugging-port=0 --test-',
+[0-0]       'type=webdriver --use-mock-keychain --user-data-',
+[0-0]       'dir=/tmp/chrome_profile 103 --window-size=1920, 1200',
+[0-0]       '',
+[0-0]       '    ',
+[0-0]       '',
+[0-0]       'enable-crashpad --flag-switches-begin',
+[0-0]       'end',
+[0-0]       'Executable Path: /opt/google/chrome/google-chrome',
+[0-0]       'Profile Path: /tmp/chrome_profile 103/Default',
+[0-0]       '',
+[0-0]       ' ',
+[0-0]       '',
+[0-0]       'flag-switches-',
+[0-0]       '',
+[0-0]       ' ',
+[0-0]       '\f'
+[0-0]     ],
+[0-0]     exitcode: 0
+[0-0]   }
+[0-0] ]
+[0-0] 
+[0-0] Scenario: test screen center area ocr
+[0-0] 
+[0-0] :browser: I open the path "/"
+[0-0] chrome:version/
+[0-0] :screen: I expect that the "Screen-200" image does contain the text "Profile Path:"
+[0-0] findTargetImage --imagePath=Screen-200 --imageSimilarity=0.8 --maxSim=1 --textHint="" --imageWaitTime=null --imageAction=null --imageMaxCount=1
+[0-0] [{"name":"Screen-200","score":null,"text":["AKRAIPIL, Like GECKO) Chrome/ 70.0.4004.55 satafl/o5/.50","Command Line: /usr/bin/google-chrome --allow-pre-commit-input --","disable-background-networking --disable-client-side-","phishing-detection --disable-default-apps --disable-","dev-shm-usage --disable-gpu --disable-hang-monitor --","disable-infobars --disable-popup-blocking --disable-","prompt-on-repost --disable-setuid-sandbox --disable-","sync --enable-automation --enable-blink-","features=ShadowDOMVO --enable-logging --ignore-","certificate-errors --incognito --log-level=0 --no-","first-run --no-sandbox --no-service-autorun --","password-store=basic --remote-debugging-port=0 --test-","type=webdriver --use-mock-keychain --user-data-","dir=/tmp/chrome_profile_103 --window-size=1920,1200 --","enable-crashpad --flag-switches-begin --flag-switches-","end","Executable Path: /opt/google/chrome/google- chrome","Profile Path: /tmp/chrome_profile_103/Default"],"location":{"x":200,"y":200},"dimension":{"width":1520,"height":800},"center":{"x":960,"y":600},"clicked":null}]
+[0-0] [
+[0-0]   {
+[0-0]     name: 'Screen-200',
+[0-0]     score: null,
+[0-0]     text: [
+[0-0]       'AKRAIPIL, Like GECKO) Chrome/ 70.0.4004.55 satafl/o5/.50',
+[0-0]       'Command Line: /usr/bin/google-chrome --allow-pre-commit-input --',
+[0-0]       'disable-background-networking --disable-client-side-',
+[0-0]       'phishing-detection --disable-default-apps --disable-',
+[0-0]       'dev-shm-usage --disable-gpu --disable-hang-monitor --',
+[0-0]       'disable-infobars --disable-popup-blocking --disable-',
+[0-0]       'prompt-on-repost --disable-setuid-sandbox --disable-',
+[0-0]       'sync --enable-automation --enable-blink-',
+[0-0]       'features=ShadowDOMVO --enable-logging --ignore-',
+[0-0]       'certificate-errors --incognito --log-level=0 --no-',
+[0-0]       'first-run --no-sandbox --no-service-autorun --',
+[0-0]       'password-store=basic --remote-debugging-port=0 --test-',
+[0-0]       'type=webdriver --use-mock-keychain --user-data-',
+[0-0]       'dir=/tmp/chrome_profile_103 --window-size=1920,1200 --',
+[0-0]       'enable-crashpad --flag-switches-begin --flag-switches-',
+[0-0]       'end',
+[0-0]       'Executable Path: /opt/google/chrome/google- chrome',
+[0-0]       'Profile Path: /tmp/chrome_profile_103/Default'
+[0-0]     ],
+[0-0]     location: { x: 200, y: 200 },
+[0-0]     dimension: { width: 1520, height: 800 },
+[0-0]     center: { x: 960, y: 600 },
+[0-0]     clicked: null
+[0-0]   }
+[0-0] ]
+[0-0] 
+[0-0] Scenario: test target image ocr
+[0-0] 
+[0-0] :browser: I open the path "/"
+[0-0] chrome:version/
+[0-0] :screen: I expect that the "chromeLogo" image does contain the text "chrome"
+[0-0] /home/xywang68/Projects/AutoBDD/framework/testimages/chromeLogo.jpg
+[0-0] findTargetImage --imagePath=/home/xywang68/Projects/AutoBDD/framework/testimages/chromeLogo.jpg --imageSimilarity=0.8 --maxSim=1 --textHint="" --imageWaitTime=null --imageAction=null --imageMaxCount=1
+[0-0] [{"name":"chromeLogo.jpg","score":0.987658,"text":["@ chrome"],"location":{"x":1367,"y":89},"dimension":{"width":129,"height":39},"center":{"x":1432,"y":109},"clicked":null}]
+[0-0] [
+[0-0]   {
+[0-0]     name: 'chromeLogo.jpg',
+[0-0]     score: 0.987658,
+[0-0]     text: [ '@ chrome' ],
+[0-0]     location: { x: 1367, y: 89 },
+[0-0]     dimension: { width: 129, height: 39 },
+[0-0]     center: { x: 1432, y: 109 },
+[0-0]     clicked: null
+[0-0]   }
+[0-0] ]
+[0-0] 
+[0-0] PASSED in chrome - /features/test_ocr.feature
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[chrome 96.0.4664.93 linux #0-0] Running: chrome (v96.0.4664.93) on linux
+[chrome 96.0.4664.93 linux #0-0] Session ID: 0e1688cdf7a4805e058ce08f0b8e78ce
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] » /features/test_ocr.feature
+[chrome 96.0.4664.93 linux #0-0] test ocr
+[chrome 96.0.4664.93 linux #0-0] As a QA Engineer
+[chrome 96.0.4664.93 linux #0-0] I want to test ocr
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] test screen area ocr
+[chrome 96.0.4664.93 linux #0-0]    ✓ When :browser: I open the path "/"
+[chrome 96.0.4664.93 linux #0-0]    ✓ Then :screen: I expect that the screen area does contain the text "Official Build"
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] test screen center area ocr
+[chrome 96.0.4664.93 linux #0-0]    ✓ When :browser: I open the path "/"
+[chrome 96.0.4664.93 linux #0-0]    ✓ Then :screen: I expect that the "Screen-200" image does contain the text "Profile Path:"
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] test target image ocr
+[chrome 96.0.4664.93 linux #0-0]    ✓ When :browser: I open the path "/"
+[chrome 96.0.4664.93 linux #0-0]    ✓ Then :screen: I expect that the "chromeLogo" image does contain the text "chrome"
+[chrome 96.0.4664.93 linux #0-0]
+[chrome 96.0.4664.93 linux #0-0] 6 passing (22.2s)
+
+
+Spec Files:	 1 passed, 1 total (100% completed) in 00:00:26 
+
+</pre>
+</body>
+</html>
