@@ -46,29 +46,29 @@ e2e-arunner:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running cucumber test with arunner.sh (single runner)...";
-	cd e2e-test/test-1nit && SCREENSHOT=3 MOVIE=1 REPORTDIR=../../test-results/arunner-report arunner.sh -x || exit $$?;
+	cd e2e-test/test-1nit && SCREENSHOT=3 MOVIE=1 REPORTDIR=../../test-results/e2e-test/arunner-report arunner.sh -x || exit $$?;
 	@echo ${testSectionEnd}
 
 e2e-prunner:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running cucumber test with prunner.sh (parllel runner)...";
-	cd e2e-test/test-autobdd-libs && SCREENSHOT=3 MOVIE=1 REPORTDIR=../../test-results/prunner-report prunner.sh || exit $$?;
+	cd e2e-test/test-autobdd-libs && SCREENSHOT=3 MOVIE=1 REPORTDIR=../../test-results/e2e-test/prunner-report prunner.sh || exit $$?;
 	@echo ${testSectionEnd}
 
 e2e-autorunner:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running cucumber test with autorunner (parallel runner with cucumber report)...";
-	autorunner.py --project autobdd-test --reportpath autorunner-report --movie 1 -- --cucumberOpts.tags='not @Init and not @Report' || exit $$?;
-	find test-results/autorunner-report -type f -name "*.run" | xargs cat || exit $$?;
+	autorunner.py --project autobdd-test --reportpath e2e-test/autorunner-report --movie 1 -- --cucumberOpts.tags='not @Init and not @Report' || exit $$?;
+	find test-results/e2e-test/autorunner-report -type f -name "*.run" | xargs cat || exit $$?;
 	@echo ${testSectionEnd}
 
 e2e-autoreport:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "checking cucumber report...";
-	cd e2e-test/test-autobdd-reports && prunner.sh || exit $$?;
+	cd e2e-test/test-autobdd-reports && REPORTDIR=../../test-results/e2e-test/autoreport prunner.sh || exit $$?;
 	@echo ${testSectionEnd}
 
 e2e-test: e2e-arunner e2e-prunner e2e-autorunner e2e-autoreport
@@ -78,16 +78,20 @@ js-test:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running jest unit test...";
+	mkdir -p test-results/js-test; \
 	cd js-test && npm install && \
-	node_modules/.bin/jest --verbose . || exit $$?;
+	node_modules/.bin/jest --verbose . > ../test-results/js-test/run.log 2>&1; \
+	exit $$?;
 	@echo ${testSectionEnd}
 
 py3-test:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running python3 unit test...";
+	mkdir -p test-results/py3-test; \
 	pip3 install -r py-test/requirement3.txt && \
-	python3 -m pytest -r A py-test || exit $$?;
+	python3 -m pytest -r A py-test > test-results/py3-test/run.log 2>&1; \
+	exit $$?;
 	@echo ${testSectionEnd}
 
 cal-app-start:
@@ -104,15 +108,22 @@ cy-test: cal-app-start
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running cypress test...";
+	mkdir -p test-results/cy-test; \
 	cd cal-app && \
-	xvfb-runner.sh bash -c "node_modules/.bin/cypress install && node_modules/.bin/cypress run" || exit $$?;
+	xvfb-runner.sh bash -c "node_modules/.bin/cypress install && node_modules/.bin/cypress run" > ../test-results/cy-test/run.log 2>&1; \
+	st=$$?; \
+	[ -d cypress/videos ] && cp -r cypress/videos/* ../test-results/cy-test/ 2>/dev/null; \
+	[ -d cypress/screenshots ] && cp -r cypress/screenshots/* ../test-results/cy-test/ 2>/dev/null; \
+	exit $$st;
 	@echo ${testSectionEnd}
 
 k6-test:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running k6 performance test...";
-	cd k6-test && find . -type f -name "*-test.js" | xargs k6 run || exit $$?;
+	mkdir -p test-results/k6-test; \
+	cd k6-test && for f in $$(find . -type f -name "*-test.js"); do k6 run "$$f"; done > ../test-results/k6-test/run.log 2>&1; \
+	exit $$?;
 	@echo ${testSectionEnd}
 
 test-all: clean e2e-test cy-test js-test py3-test k6-test
