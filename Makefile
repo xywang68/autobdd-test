@@ -94,7 +94,7 @@ cal-app-start:
 	@echo make $@
 	@echo "starting up cal-app...";
 	cd cal-app && npm install && npm start
-	
+
 cal-app-stop:
 	@echo make $@
 	@echo "stopping cal-app...";
@@ -105,8 +105,7 @@ cy-test: cal-app-start
 	@echo ${testSectionBegin};
 	@echo "running cypress test...";
 	cd cal-app && \
-	node_modules/.bin/cypress install && \
-	node_modules/.bin/cypress run || exit $$?;
+	xvfb-runner.sh bash -c "node_modules/.bin/cypress install && node_modules/.bin/cypress run" || exit $$?;
 	@echo ${testSectionEnd}
 
 k6-test:
