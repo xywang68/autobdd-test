@@ -52,10 +52,6 @@ docker-compose run --rm autobdd-test-run "make cy-test"
 ```
 docker-compose run --rm autobdd-test-run "make py3-test"
 ```
-###### python2
-```
-docker-compose run --rm autobdd-test-run "make py2-test"
-```
 #### test all in one-shot
 ```
 docker-compose run --rm autobdd-test-run "xvfb-runner.sh make test-all"

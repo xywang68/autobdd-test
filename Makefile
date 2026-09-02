@@ -1,7 +1,7 @@
 testSectionBegin="=======\nTest\n-------"
 testSectionEnd="----------\nDone Test\n=========="
 
-.PHONY: docker-run test-all test clean e2e-test cy-test js-test py3-test py2-test k6-test
+.PHONY: docker-run test-all test clean e2e-test cy-test js-test py3-test k6-test
 
 # export dynamic env for docker-compose (not shell-substitutable in .env)
 export USER ?= $(shell whoami)
@@ -90,14 +90,6 @@ py3-test:
 	python3 -m pytest -r A py-test || exit $$?;
 	@echo ${testSectionEnd}
 
-py2-test:
-	@echo make $@
-	@echo ${testSectionBegin};
-	@echo "running python2 unit test...";
-	pip2 install -r py-test/requirement2.txt && \
-	python2 -m pytest -r A py-test || exit $$?;
-	@echo ${testSectionEnd}
-
 cal-app-start:
 	@echo make $@
 	@echo "starting up cal-app...";
@@ -125,7 +117,4 @@ k6-test:
 	@echo ${testSectionEnd}
 
 test-all: clean e2e-test cy-test js-test py3-test k6-test
-	@echo make $@
-
-test-all2: clean e2e-test cy-test js-test py3-test py2-test k6-test
 	@echo make $@
