@@ -17,7 +17,6 @@
 #   * Patched startup scripts (dev/*.startup.sh) are bind-mounted over the image's
 #     baked copies; they skip the node_modules refresh when AUTOBDD_DEV_MOUNT=1 so the
 #     working tree's own node_modules (wdio 7) is never clobbered by the image's (wdio 6).
-version: '2.4'
 services:
 
   # dev container for developing autobdd test
