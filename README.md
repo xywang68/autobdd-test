@@ -47,7 +47,7 @@ directly in a browser; the `run.log` files are plain text.
 
 ##### e2e test
 ```
-docker-compose run --rm autobdd-test-run "make e2e-auto-runner"
+docker-compose run --rm autobdd-test-run "make e2e-test"
 ```
 
 #### performance test
