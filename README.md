@@ -30,21 +30,6 @@ test-results/
 └── k6-test/                  # k6 run.log
 ```
 
-##### inspect test results
-The reports are HTML that load relative css/js, so serve them over http rather than
-opening the file directly. From the project root:
-```
-make serve-report                    # serves the committed demo (test-results-example) on :8000
-make serve-report DIR=test-results   # serve your latest run's results
-make serve-report PORT=8080          # pick a different port
-```
-Then open in a browser:
-```
-http://localhost:8000/e2e-test/autorunner-report/index.html
-```
-(each e2e runner has one: `/e2e-test/{arunner,prunner,autorunner,autoreport}-report/index.html`;
-the per-suite `run.log` files under `/cy-test`, `/js-test`, `/py3-test`, `/k6-test` are also browsable.)
-
 ##### e2e test
 ```
 docker-compose run --rm autobdd-test-run "make e2e-autorunner"
