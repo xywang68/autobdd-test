@@ -87,9 +87,11 @@ ssh -o StrictHostKeyChecking=no $USER@ip.add.re.ss -p 2224
 default password is *ubuntu*
 ```
 ###### vnc viewer access to dev container:
+launch remmina (or another vnc client):
 ```
-vnc://ip.add.re.ss:5904
+remmina -c vnc://localhost:5924
 ```
+(default password is *ubuntu*)
 ###### run single test from ssh shell:
 ```
 cd e2e-test/test-something
