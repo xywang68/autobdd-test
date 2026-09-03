@@ -15,6 +15,21 @@
 2. git clone https://github.com/xyteam/autobdd-test.git $HOME/Projects/autobdd-test
 
 #### test and report:
+results are grouped by test suite under `test-results/`:
+
+```
+test-results/
+├── e2e-test/
+│   ├── arunner-report/       # cucumber html - single-runner (test-1nit)
+│   ├── prunner-report/       # cucumber html - parallel runner (test-autobdd-libs)
+│   ├── autorunner-report/    # cucumber html - autorunner
+│   └── autoreport/           # check_build_report validation output
+├── cy-test/                  # cypress run.log + video/screenshot artifacts
+├── js-test/                  # jest run.log
+├── py3-test/                 # pytest run.log
+└── k6-test/                  # k6 run.log
+```
+
 ##### e2e test
 ```
 docker-compose run --rm autobdd-test-run "make e2e-autorunner"
@@ -22,7 +37,7 @@ docker-compose run --rm autobdd-test-run "make e2e-autorunner"
 ##### review e2e test report
 use browser to open searchable cucumber report
 
-test-results/build-test/index.html
+test-results/e2e-test/autorunner-report/index.html
 
 or
 
