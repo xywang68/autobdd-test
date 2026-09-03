@@ -33,38 +33,38 @@ docker-ssh:
 
 clean:
 	@echo make $@
-	@echo "cleaning autorunner-report folder...";
+	@echo "cleaning auto-runner-report folder...";
 	rm -rf test-results/*;
 	find . -type d -name "__pycache__" -o -name ".pytest_cache" | xargs rm -rf;
 	find . -type f -name "*.pyc" | xargs rm -f;
 	find e2e-test -type d -name logs | xargs rm -rf;
-	find e2e-test -type d -name test-results -o -name arunner-report -o -name prunner-report -o -name autorunner-report | xargs rm -rf;
+	find e2e-test -type d -name test-results -o -name single-runner-report -o -name parallel-runner-report -o -name auto-runner-report | xargs rm -rf;
 	find e2e-test -type f -name "test-*.json" | xargs rm -f;
 	find e2e-test -type f -name "Passed_*.???" -o -name "Failed_*.???" -o -name "Recording_*.???" | xargs rm -f;
 
-e2e-arunner:
+e2e-single-runner:
 	@echo make $@
 	@echo ${testSectionBegin};
-	@echo "running cucumber test with arunner.sh (single runner)...";
-	cd e2e-test/test-1nit && SCREENSHOT=3 MOVIE=1 REPORTDIR=../../test-results/e2e-test/arunner-report arunner.sh -x || exit $$?;
+	@echo "running cucumber test with single-runner.sh (single runner)...";
+	cd e2e-test/test-1nit && SCREENSHOT=3 MOVIE=1 REPORTDIR=../../test-results/e2e-test/single-runner-report single-runner.sh -x || exit $$?;
 	@echo ${testSectionEnd}
 
-e2e-prunner:
+e2e-parallel-runner:
 	@echo make $@
 	@echo ${testSectionBegin};
-	@echo "running cucumber test with prunner.sh (parllel runner)...";
-	cd e2e-test/test-autobdd-libs && SCREENSHOT=3 MOVIE=1 REPORTDIR=../../test-results/e2e-test/prunner-report prunner.sh || exit $$?;
+	@echo "running cucumber test with parallel-runner.sh (parllel runner)...";
+	cd e2e-test/test-autobdd-libs && SCREENSHOT=3 MOVIE=1 REPORTDIR=../../test-results/e2e-test/parallel-runner-report parallel-runner.sh || exit $$?;
 	@echo ${testSectionEnd}
 
-e2e-autorunner:
+e2e-auto-runner:
 	@echo make $@
 	@echo ${testSectionBegin};
-	@echo "running cucumber test with autorunner (parallel runner with cucumber report)...";
-	autorunner.py --project autobdd-test --reportpath e2e-test/autorunner-report --movie 1 -- --cucumberOpts.tags='not @Init' || exit $$?;
-	find test-results/e2e-test/autorunner-report -type f -name "*.run" | xargs cat || exit $$?;
+	@echo "running cucumber test with auto-runner (parallel runner with cucumber report)...";
+	auto-runner.py --project autobdd-test --reportpath e2e-test/auto-runner-report --movie 1 -- --cucumberOpts.tags='not @Init' || exit $$?;
+	find test-results/e2e-test/auto-runner-report -type f -name "*.run" | xargs cat || exit $$?;
 	@echo ${testSectionEnd}
 
-e2e-test: e2e-arunner e2e-prunner e2e-autorunner
+e2e-test: e2e-single-runner e2e-parallel-runner e2e-auto-runner
 	@echo make $@
 
 js-test:
