@@ -1,7 +1,7 @@
 testSectionBegin="=======\nTest\n-------"
 testSectionEnd="----------\nDone Test\n=========="
 
-.PHONY: docker-run test-all test clean e2e-test cy-test js-test py3-test k6-test
+.PHONY: docker-run test-all test clean e2e-test cypress-test jest-test pytest-test k6-test
 
 # export dynamic env for docker-compose (not shell-substitutable in .env)
 export USER ?= $(shell whoami)
@@ -67,23 +67,23 @@ e2e-auto-runner:
 e2e-test: e2e-single-runner e2e-parallel-runner e2e-auto-runner
 	@echo make $@
 
-js-test:
+jest-test:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running jest unit test...";
-	mkdir -p test-results/js-test; \
+	mkdir -p test-results/jest-test; \
 	cd js-test && npm install && \
-	node_modules/.bin/jest --verbose . > ../test-results/js-test/run.log 2>&1; \
+	node_modules/.bin/jest --verbose . > ../test-results/jest-test/run.log 2>&1; \
 	exit $$?;
 	@echo ${testSectionEnd}
 
-py3-test:
+pytest-test:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running python3 unit test...";
-	mkdir -p test-results/py3-test; \
+	mkdir -p test-results/pytest-test; \
 	pip3 install -r py-test/requirement3.txt && \
-	python3 -m pytest -r A py-test > test-results/py3-test/run.log 2>&1; \
+	python3 -m pytest -r A py-test > test-results/pytest-test/run.log 2>&1; \
 	exit $$?;
 	@echo ${testSectionEnd}
 
@@ -97,16 +97,16 @@ cal-app-stop:
 	@echo "stopping cal-app...";
 	cd cal-app && npm stop
 
-cy-test: cal-app-start
+cypress-test: cal-app-start
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running cypress test...";
-	mkdir -p test-results/cy-test; \
+	mkdir -p test-results/cypress-test; \
 	cd cal-app && \
-	xvfb-runner.sh bash -c "node_modules/.bin/cypress install && node_modules/.bin/cypress run" > ../test-results/cy-test/run.log 2>&1; \
+	xvfb-runner.sh bash -c "node_modules/.bin/cypress install && node_modules/.bin/cypress run" > ../test-results/cypress-test/run.log 2>&1; \
 	st=$$?; \
-	[ -d cypress/videos ] && cp -r cypress/videos/* ../test-results/cy-test/ 2>/dev/null; \
-	[ -d cypress/screenshots ] && cp -r cypress/screenshots/* ../test-results/cy-test/ 2>/dev/null; \
+	[ -d cypress/videos ] && cp -r cypress/videos/* ../test-results/cypress-test/ 2>/dev/null; \
+	[ -d cypress/screenshots ] && cp -r cypress/screenshots/* ../test-results/cypress-test/ 2>/dev/null; \
 	exit $$st;
 	@echo ${testSectionEnd}
 
@@ -119,5 +119,5 @@ k6-test:
 	exit $$?;
 	@echo ${testSectionEnd}
 
-test-all: clean e2e-test cy-test js-test py3-test k6-test
+test-all: clean e2e-test cypress-test jest-test pytest-test k6-test
 	@echo make $@

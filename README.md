@@ -23,9 +23,9 @@ test-results/
 │   ├── single-runner-report/       # cucumber html - single-runner (test-1nit)
 │   ├── parallel-runner-report/       # cucumber html - parallel runner (test-autobdd-libs)
 │   └── auto-runner-report/    # cucumber html - auto-runner
-├── cy-test/                  # cypress run.log + video/screenshot artifacts
-├── js-test/                  # jest run.log
-├── py3-test/                 # pytest run.log
+├── cypress-test/             # cypress run.log + video/screenshot artifacts
+├── jest-test/                # jest run.log
+├── pytest-test/              # pytest run.log
 └── k6-test/                  # k6 run.log
 ```
 
@@ -37,9 +37,9 @@ each suite produces a result file to inspect:
 | e2e-test | `e2e-test/auto-runner-report/index.html` | open in a browser (cucumber html report) |
 | e2e-test | `e2e-test/parallel-runner-report/index.html` | open in a browser |
 | e2e-test | `e2e-test/single-runner-report/index.html` | open in a browser |
-| cy-test | `cy-test/run.log` (and `cy-test/*.mp4` video) | open log in a text editor |
-| js-test | `js-test/run.log` | open in a text editor |
-| py3-test | `py3-test/run.log` | open in a text editor |
+| cypress-test | `cypress-test/run.log` (and `cypress-test/*.mp4` video) | open log in a text editor |
+| jest-test | `jest-test/run.log` | open in a text editor |
+| pytest-test | `pytest-test/run.log` | open in a text editor |
 | k6-test | `k6-test/run.log` | open in a text editor |
 
 the cucumber html reports are self-contained single pages - open the `index.html`
@@ -58,15 +58,15 @@ docker-compose run --rm autobdd-test-run "make k6-test"
 #### unit test
 ###### jest
 ```
-docker-compose run --rm autobdd-test-run "make js-test"
+docker-compose run --rm autobdd-test-run "make jest-test"
 ```
 ###### cypress
 ```
-docker-compose run --rm autobdd-test-run "make cy-test"
+docker-compose run --rm autobdd-test-run "make cypress-test"
 ```
 ###### python3
 ```
-docker-compose run --rm autobdd-test-run "make py3-test"
+docker-compose run --rm autobdd-test-run "make pytest-test"
 ```
 #### test all in one-shot
 ```
