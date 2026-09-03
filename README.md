@@ -30,6 +30,23 @@ test-results/
 └── k6-test/                  # k6 run.log
 ```
 
+##### open result files per suite
+each suite produces a result file to inspect:
+
+| suite | result file | how to view |
+|-------|-------------|-------------|
+| e2e-test | `e2e-test/autorunner-report/index.html` | open in a browser (cucumber html report) |
+| e2e-test | `e2e-test/prunner-report/index.html` | open in a browser |
+| e2e-test | `e2e-test/arunner-report/index.html` | open in a browser |
+| e2e-test | `e2e-test/autoreport/index.html` | open in a browser (report validation) |
+| cy-test | `cy-test/run.log` (and `cy-test/*.mp4` video) | open log in a text editor |
+| js-test | `js-test/run.log` | open in a text editor |
+| py3-test | `py3-test/run.log` | open in a text editor |
+| k6-test | `k6-test/run.log` | open in a text editor |
+
+the cucumber html reports are self-contained single pages - open the `index.html`
+directly in a browser; the `run.log` files are plain text.
+
 ##### e2e test
 ```
 docker-compose run --rm autobdd-test-run "make e2e-autorunner"
