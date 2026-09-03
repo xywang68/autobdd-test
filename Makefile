@@ -1,7 +1,7 @@
 testSectionBegin="=======\nTest\n-------"
 testSectionEnd="----------\nDone Test\n=========="
 
-.PHONY: docker-run test-all test clean e2e-test cy-test js-test py3-test k6-test
+.PHONY: docker-run test-all test clean e2e-test cy-test js-test py3-test k6-test serve-report
 
 # export dynamic env for docker-compose (not shell-substitutable in .env)
 export USER ?= $(shell whoami)
@@ -9,6 +9,10 @@ export HOSTOS ?= $(shell uname -s)
 export USERID ?= $(shell id -u)
 export GROUPID ?= $(shell id -g)
 export PASSWORD ?= ubuntu
+
+# report server defaults (override: make serve-report DIR=test-results PORT=8080)
+DIR ?= test-results-example
+PORT ?= 8000
 
 docker-run:
 	@echo make $@
@@ -30,6 +34,20 @@ docker-down:
 	docker-compose down
 docker-ssh:
 	ssh $$USER@localhost -p 2224 || exit $?
+
+# Serve a test-results directory over http so the cucumber HTML reports (which
+# load relative css/js) render correctly. DIR defaults to test-results-example
+# (committed demo); point it at test-results/ for your latest run.
+#   make serve-report                # demo example, port 8000
+#   make serve-report DIR=test-results
+#   make serve-report PORT=8080
+serve-report:
+	@test -d ${DIR} || { echo "no such dir: ${DIR}"; exit 1; }
+	@echo "serving ${DIR} on http://localhost:${PORT} ..."
+	@echo "  e2e cucumber html:  http://localhost:${PORT}/e2e-test/autorunner-report/index.html"
+	@echo "  (also: /e2e-test/{arunner,prunner,autoreport}-report/index.html)"
+	@echo "  ctrl-c to stop"
+	cd ${DIR} && python3 -m http.server ${PORT}
 
 clean:
 	@echo make $@
