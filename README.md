@@ -82,8 +82,6 @@ docker-compose up -d autobdd-test-dev
 ###### ssh access to dev container:
 ```
 ssh -o StrictHostKeyChecking=no localhost -p 2224
-or
-ssh -o StrictHostKeyChecking=no $USER@ip.add.re.ss -p 2224
 default password is *ubuntu*
 ```
 ###### vnc viewer access to dev container:
