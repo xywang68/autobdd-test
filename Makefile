@@ -60,18 +60,11 @@ e2e-autorunner:
 	@echo make $@
 	@echo ${testSectionBegin};
 	@echo "running cucumber test with autorunner (parallel runner with cucumber report)...";
-	autorunner.py --project autobdd-test --reportpath e2e-test/autorunner-report --movie 1 -- --cucumberOpts.tags='not @Init and not @Report' || exit $$?;
+	autorunner.py --project autobdd-test --reportpath e2e-test/autorunner-report --movie 1 -- --cucumberOpts.tags='not @Init' || exit $$?;
 	find test-results/e2e-test/autorunner-report -type f -name "*.run" | xargs cat || exit $$?;
 	@echo ${testSectionEnd}
 
-e2e-autoreport:
-	@echo make $@
-	@echo ${testSectionBegin};
-	@echo "checking cucumber report...";
-	cd e2e-test/test-autobdd-reports && REPORTDIR=../../test-results/e2e-test/autoreport prunner.sh || exit $$?;
-	@echo ${testSectionEnd}
-
-e2e-test: e2e-arunner e2e-prunner e2e-autorunner e2e-autoreport
+e2e-test: e2e-arunner e2e-prunner e2e-autorunner
 	@echo make $@
 
 js-test:

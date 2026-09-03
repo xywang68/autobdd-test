@@ -22,8 +22,7 @@ test-results/
 ├── e2e-test/
 │   ├── arunner-report/       # cucumber html - single-runner (test-1nit)
 │   ├── prunner-report/       # cucumber html - parallel runner (test-autobdd-libs)
-│   ├── autorunner-report/    # cucumber html - autorunner
-│   └── autoreport/           # check_build_report validation output
+│   └── autorunner-report/    # cucumber html - autorunner
 ├── cy-test/                  # cypress run.log + video/screenshot artifacts
 ├── js-test/                  # jest run.log
 ├── py3-test/                 # pytest run.log
@@ -38,7 +37,6 @@ each suite produces a result file to inspect:
 | e2e-test | `e2e-test/autorunner-report/index.html` | open in a browser (cucumber html report) |
 | e2e-test | `e2e-test/prunner-report/index.html` | open in a browser |
 | e2e-test | `e2e-test/arunner-report/index.html` | open in a browser |
-| e2e-test | `e2e-test/autoreport/index.html` | open in a browser (report validation) |
 | cy-test | `cy-test/run.log` (and `cy-test/*.mp4` video) | open log in a text editor |
 | js-test | `js-test/run.log` | open in a text editor |
 | py3-test | `py3-test/run.log` | open in a text editor |
