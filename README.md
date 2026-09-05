@@ -1,14 +1,21 @@
 # autobdd-test
 
-#### purposes:
-1. smoke test and demo the automagic power of xyteam/autobdd test framework;
-2. serve as a template for setting up a new autobdd test project.
+> ## ⚠️ MERGED INTO AutoBDD — DEVELOPMENT STOPPED HERE
+>
+> This repo's content has been **folded into [AutoBDD](https://github.com/xyteam/AutoBDD)**
+> as that project's **internal test suite** (see `AutoBDD/test-projects/autobdd-test/`).
+> The four-repo structure was consolidated into a single AutoBDD monorepo (phase-1).
+>
+> **No further development happens in this repo.** Changes to the test suite should be
+> made in the AutoBDD repo instead. This repo is kept read-only for historical reference
+> and to document how an AutoBDD test project is set up.
+>
+> **Reference:** https://github.com/xyteam/AutoBDD
 
-> **Version sync (v3.0.0):** This repo is part of the four-repo project set aligned
-> on **3.0.0** (AutoBDD framework + docker image `xyteam/autobdd:3.0.0`,
-> AutoBDD-example, autobdd-test, xySikulixApi) — all verified to work together.
-> `.env`'s `AutoBDD_Ver=3.0.0` selects the matching image. This is the base going
-> forward; a future effort consolidates the repos and upgrades dependencies together.
+#### purposes:
+1. (historical) smoke test and demo the automagic power of xyteam/autobdd test framework;
+2. (historical) serve as a template for setting up a new autobdd test project —
+   note the content now lives inside AutoBDD as its internal test suite.
 
 #### requirement:
 1. docker,
