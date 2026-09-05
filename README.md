@@ -48,8 +48,9 @@ each suite produces a result file to inspect:
 | pytest-test | `pytest-test/run.log` | open in a text editor |
 | k6-test | `k6-test/run.log` | open in a text editor |
 
-the cucumber html reports are self-contained single pages - open the `index.html`
-directly in a browser; the `run.log` files are plain text.
+##### sample report output
+a representative green-run output per suite (what each report/`run.log` looks like) is
+available as a gist: https://gist.github.com/xywang68/79d2410ac7c7b7607a87216b0ea35ee2
 
 ##### e2e test
 ```
